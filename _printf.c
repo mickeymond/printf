@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <stdarg.h>
 #include "main.h"
 
 /**
@@ -26,7 +24,7 @@ int _printf(const char *format, ...)
 
 				while (*string != '\0')
 				{
-					putchar(*string);
+					_putchar(*string);
 					string++;
 					counter++;
 				}
@@ -35,7 +33,7 @@ int _printf(const char *format, ...)
 			{
 				char character = va_arg(arg, int);
 
-				putchar(character);
+				_putchar(character);
 				counter++;
 			}
 			else
@@ -43,11 +41,10 @@ int _printf(const char *format, ...)
 			format++;
 			continue;
 		}
-		putchar(*format);
+		_putchar(*format);
 		format++;
 		counter++;
 	}
 	/* Return the number of characters printed excluding end of line character */
 	return (counter);
 }
-
