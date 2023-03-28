@@ -3,7 +3,6 @@
 /**
  * _printf - Outputs a formatted string.
  * @format: Character string to print - may contain directives.
- *
  * Return: The number of characters printed.
  */
 int _printf(const char *format, ...)
@@ -12,7 +11,6 @@ int _printf(const char *format, ...)
 	int counter = 0;
 
 	va_start(arg, format);
-
 	while (*format != '\0')
 	{
 		if (*format == '%')
@@ -20,14 +18,7 @@ int _printf(const char *format, ...)
 			format++;
 			if (*format == 's')
 			{
-				char *string = va_arg(arg, char*);
-
-				while (*string != '\0')
-				{
-					_putchar(*string);
-					string++;
-					counter++;
-				}
+				_printf_string(va_arg(arg, char*), &counter);
 			}
 			else if (*format == 'c')
 			{
@@ -37,7 +28,10 @@ int _printf(const char *format, ...)
 				counter++;
 			}
 			else
-			{}
+			{
+				_putchar(*format);
+				counter++;
+			}
 			format++;
 			continue;
 		}
@@ -46,7 +40,5 @@ int _printf(const char *format, ...)
 		counter++;
 	}
 	va_end(arg);
-	/* Return the number of characters printed excluding end of line character */
 	return (counter);
 }
-
