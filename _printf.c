@@ -48,3 +48,4 @@ int _printf(const char *format, ...)
 	/* Return the number of characters printed excluding end of line character */
 	return (counter);
 }
+
