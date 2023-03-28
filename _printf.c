@@ -45,6 +45,7 @@ int _printf(const char *format, ...)
 		format++;
 		counter++;
 	}
+	va_end(arg);
 	/* Return the number of characters printed excluding end of line character */
 	return (counter);
 }
