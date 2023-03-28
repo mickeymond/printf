@@ -22,14 +22,16 @@ int _printf(const char *format, ...)
 			}
 			else if (*format == 'c')
 			{
-				char character = va_arg(arg, int);
-
-				_putchar(character);
+				_putchar(va_arg(arg, int));
+				counter++;
+			}
+			else if (*format == '%')
+			{
+				_putchar(*format);
 				counter++;
 			}
 			else
 			{
-				_putchar('%');
 				_putchar(*format);
 				counter++;
 			}
